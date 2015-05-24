@@ -9,8 +9,8 @@ How it works :
 
 How to use :
 
--clone this repository
--navigate to the repository folder
--install nodeJS and npm
--install express module for Node :  npm install express --save
--open the browser and navigate to address : http://localhost:8080
+1. clone this repository
+2. navigate to the repository folder
+3. install nodeJS and npm
+4. install express module for Node :  npm install express --save
+5. open the browser and navigate to address : http://localhost:8080
