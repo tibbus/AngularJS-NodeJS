@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="NewsApp">
+  	<head>
+
+	    <script type="text/javascript" src="lib/angular.min.js"></script>
+	    <script type="text/javascript" src="lib/jquery.js"></script>
+	    <script type="text/javascript" src="lib/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+	    <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.1.custom/jquery-ui.structure.css">
+	    <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.1.custom/jquery-ui.theme.css">
+	    <link rel="stylesheet" type="text/css" href="style.css">
+	    <script type="text/javascript" src="app.js"></script>
+
+    </head>
+    <body ng-controller="NewsController as news">
+
+	    <div id="tabs">
+			<ul >
+		    	<li ng-repeat="tab in news.list" ng-click="news.setTab(tab.link)">
+		    		<a ng-attr-href="{{ '#fragment-' + tab.index }}" >{{tab.name}} </a>
+		    	</li>
+			</ul>
+			<div ng-repeat="tab in news.list" ng-attr-id="{{ 'fragment-' + tab.index }}">
+			    <div ng-repeat="story in news.content">
+			    	
+				    <div class="wrap-content">
+				    	<div class="publisher">{{story.publisher}} &nbsp;:&nbsp;&nbsp; </div>	
+				    	<div class="date"> {{story.publishedDate}} </div>	
+				    	<img class="thumb-img" ng-src="{{story.image.tbUrl}}" />
+				    	
+				    	<h3 class="content">{{story.titleNoFormatting}}</h3>		    		
+				    	<p class="content">{{story.content}}</p>
+				    	<a class="content storyLink" ng-attr-href="{{story.unescapedUrl}}" target="_blank" >{{story.unescapedUrl}}</a>
+				    	<br><br>
+				    </div>		    
+			    </div>
+			</div>
+
+		</div>
+  </body>
+</html>
